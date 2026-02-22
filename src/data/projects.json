@@ -1,0 +1,78 @@
+[
+    {
+        "slug": "model-compression-ppe",
+        "title": "Model Comparison and Compression for PPE Detection",
+        "authors": "Jayant Patel, Aravind Kumar, Dr. Sarah Mitchell",
+        "affiliation": "Indian Institute of Technology (IIT) Jammu",
+        "abstract": "Personal Protective Equipment (PPE) detection is critical for industrial safety but often requires deploying heavy deep learning models on resource-constrained edge devices. In this study, we perform a comprehensive comparison of state-of-the-art object detection architectures and propose a novel compression pipeline. Our optimized YOLOv8n-based model achieves an <strong>80.95% size reduction</strong> compared to the baseline while maintaining a mean Average Precision (mAP) within 1.5% of the original performance. This work demonstrates the feasibility of real-time, high-accuracy PPE compliance monitoring on low-power hardware.",
+        "methodology": [
+            "<strong>Knowledge Distillation:</strong> Using a larger YOLOv8l teacher model to guide the training of a compact student network, recovering accuracy loss from architectural downsizing.",
+            "<strong>Channel Pruning:</strong> Identifying and removing redundant channels in the backbone network using L1-norm criteria, reducing computation by 40%.",
+            "<strong>Quantization Aware Training (QAT):</strong> Converting weights from FP32 to INT8 precision during fine-tuning to minimize quantization error on target hardware.",
+            "<strong>Data Augmentation:</strong> Employing Mosaic and MixUp augmentation strategies to improve model robustness against varying lighting conditions in industrial environments."
+        ],
+        "resultsTable": {
+            "headers": [
+                "Model Variant",
+                "Model Size (MB)",
+                "Parameters (M)",
+                "Precision (%)",
+                "Recall (%)"
+            ],
+            "rows": [
+                [
+                    "YOLOv8n (Baseline)",
+                    "6.23",
+                    "3.2",
+                    "91.2",
+                    "88.5"
+                ],
+                [
+                    "YOLOv8n-Pruned",
+                    "3.50",
+                    "1.8",
+                    "90.8",
+                    "87.9"
+                ],
+                [
+                    "<strong>YOLOv8n-Optimized (Ours)</strong>",
+                    "<strong class=\"text-primary\">1.19 (-80.9%)</strong>",
+                    "0.9",
+                    "<strong>90.5</strong>",
+                    "87.1"
+                ],
+                [
+                    "MobileNetV2-SSD",
+                    "14.5",
+                    "4.3",
+                    "85.4",
+                    "82.3"
+                ],
+                [
+                    "EfficientDet-D0",
+                    "18.2",
+                    "3.9",
+                    "89.1",
+                    "86.7"
+                ]
+            ]
+        },
+        "links": [
+            {
+                "label": "Read Full Paper",
+                "icon": "file-text",
+                "url": "/paper.pdf"
+            },
+            {
+                "label": "GitHub Repo",
+                "icon": "code",
+                "url": "https://github.com"
+            },
+            {
+                "label": "Dataset",
+                "icon": "database",
+                "url": "https://dataset.com"
+            }
+        ]
+    }
+]

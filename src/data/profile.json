@@ -1,0 +1,24 @@
+{
+    "name": "Jayant Patel",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
+    "tagline": "Building efficient eyes for edge devices.",
+    "bioHtml": "I am a PhD Candidate in Computer Science at the University of Washington, advised by Prof. Jane Doe. My research focuses on <strong>Computer Vision</strong> and <strong>Model Compression</strong>, specifically designing efficient YOLO architectures that maintain high accuracy on resource-constrained <strong>edge devices</strong>. Previously, I was a Research Intern at <strong>NVIDIA AI Lab</strong>.",
+    "resumeUrl": "/resume.pdf",
+    "links": [
+        {
+            "label": "Scholar",
+            "url": "https://scholar.google.com",
+            "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2L2 7l10 5 10-5-10-5Z\"></path><path d=\"m2 17 10 5 10-5M2 12l10 5 10-5\"></path></svg>"
+        },
+        {
+            "label": "GitHub",
+            "url": "https://github.com",
+            "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-8.5a5.4 5.4 0 0 0-1.5-3.9c.1-.4.7-2-.1-3.9 0 0-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0C6.2 1.2 5 1.6 5 1.6c-.8 1.9-.2 3.5-.1 3.9A5.4 5.4 0 0 0 3.5 9c0 7 3 8.2 6 8.5a4.8 4.8 0 0 0-1 3.2v3\"></path></svg>"
+        },
+        {
+            "label": "Email",
+            "url": "mailto:test@example.com",
+            "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"></rect><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path></svg>"
+        }
+    ]
+}

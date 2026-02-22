@@ -1,0 +1,50 @@
+---
+// Footer.astro
+---
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="copyright">
+            &copy; {new Date().getFullYear()} Jayant Patel. All rights reserved.
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">Scholar</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        padding: 3rem 0;
+        margin-top: 4rem;
+        border-top: 1px solid var(--color-border);
+    }
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+    .social-link {
+        color: var(--color-text-muted);
+    }
+    .social-link:hover {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+        .footer-inner {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+    }
+</style>

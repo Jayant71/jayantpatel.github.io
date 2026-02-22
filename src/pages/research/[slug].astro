@@ -1,0 +1,402 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import projects from "../../data/projects.json";
+
+export function getStaticPaths() {
+    return projects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+
+const iconMap: Record<string, string> = {
+    "file-text":
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>',
+    code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+    database:
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
+};
+---
+
+<Layout title={`${project.title} - Jayant Patel`}>
+    <div class="project-header">
+        <div class="container project-nav">
+            <a href="/" class="back-link">
+                <div class="logo-icon small"></div>
+                <span>Project Research</span>
+            </a>
+            <div class="project-nav-links">
+                <a href="#abstract">Abstract</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#results">Results</a>
+                <a href="/paper.pdf" class="btn btn-dark">Paper</a>
+            </div>
+        </div>
+    </div>
+
+    <article class="project-container container">
+        <header class="project-title-header">
+            <h1 class="project-title">{project.title}</h1>
+            <div class="project-authors">{project.authors}</div>
+            <div class="project-affiliation">{project.affiliation}</div>
+        </header>
+
+        <section id="abstract" class="project-section abstract-section">
+            <h2>Abstract</h2>
+            <p class="abstract-text" set:html={project.abstract}></p>
+        </section>
+
+        <div class="split-section">
+            <div class="half-section">
+                <h2>System Architecture</h2>
+                <div class="architecture-diagram">
+                    <div class="diagram-placeholder">
+                        <svg
+                            class="placeholder-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            ><rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"
+                            ></circle><polyline points="21 15 16 10 5 21"
+                            ></polyline>
+                        </svg>
+                        <span>Architecture Diagram Placeholder</span>
+                        <span class="diagram-sub"
+                            >Input → Pre-processing → Model → Post-processing</span
+                        >
+                    </div>
+                    <p class="figure-caption">
+                        Figure 1. The proposed end-to-end pipeline for efficient
+                        PPE detection on edge devices.
+                    </p>
+                </div>
+            </div>
+
+            <div class="half-section" id="methodology">
+                <h2>Methodology</h2>
+                <p class="methodology-intro">
+                    Our approach focuses on three key stages of optimization to
+                    ensure the model fits within the strict memory constraints
+                    of microcontroller-class devices:
+                </p>
+                <ul class="methodology-list">
+                    {
+                        project.methodology.map((item: string) => (
+                            <li>
+                                <svg
+                                    class="check-icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <div set:html={item} />
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <section id="results" class="project-section">
+            <h2>Quantitative Results</h2>
+            <p class="table-caption">
+                Table 1: Comparison of the baseline YOLOv8n model against our
+                optimized version and other standard light-weight architectures
+                on the custom PPE dataset.
+            </p>
+
+            <div class="table-responsive">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            {
+                                project.resultsTable.headers.map(
+                                    (header: string) => <th set:html={header} />
+                                )
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            project.resultsTable.rows.map((row: string[]) => (
+                                <tr>
+                                    {row.map((cell: string) => (
+                                        <td set:html={cell} />
+                                    ))}
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="project-actions">
+            {
+                project.links.map((link: any) => (
+                    <a
+                        href={link.url}
+                        class="btn btn-outline action-btn"
+                        target="_blank"
+                    >
+                        <span
+                            class="btn-icon"
+                            set:html={iconMap[link.icon] || ""}
+                        />
+                        {link.label}
+                    </a>
+                ))
+            }
+        </div>
+    </article>
+</Layout>
+
+<style>
+    .project-header {
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem 0;
+        margin-bottom: 4rem;
+    }
+    .project-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .back-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        color: var(--color-text);
+    }
+    .back-link:hover {
+        text-decoration: none;
+        color: var(--color-primary);
+    }
+    .logo-icon.small {
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+        border-radius: 50%;
+    }
+    .project-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .project-nav-links a:not(.btn) {
+        color: var(--color-text-muted);
+    }
+    .project-nav-links a:not(.btn):hover {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    .project-container {
+        max-width: 900px;
+    }
+    .project-title-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .project-title {
+        font-size: 2.75rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    .project-authors {
+        font-size: 1.125rem;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+    }
+    .project-affiliation {
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    .project-section {
+        margin-bottom: 4rem;
+    }
+    .project-section h2,
+    .half-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .abstract-section {
+        background-color: var(--color-bg-alt);
+        padding: 2.5rem;
+        border-radius: 1rem;
+    }
+    .abstract-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--color-text-muted);
+        margin: 0;
+    }
+    .abstract-text :global(strong) {
+        color: var(--color-text);
+        font-weight: 600;
+    }
+
+    .split-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .architecture-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .diagram-placeholder {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border: 2px dashed #d1d5db;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+        background-color: #f9fafb;
+        gap: 0.5rem;
+    }
+    .placeholder-icon {
+        width: 48px;
+        height: 48px;
+        opacity: 0.5;
+    }
+    .diagram-sub {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+    }
+    .figure-caption {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        font-style: italic;
+        text-align: center;
+    }
+
+    .methodology-intro {
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+    }
+    .methodology-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .methodology-list li {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+    }
+    .check-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        color: var(--color-primary);
+        margin-top: 0.2rem;
+    }
+    .methodology-list :global(strong) {
+        color: var(--color-text);
+    }
+
+    .table-caption {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        font-style: italic;
+        margin-bottom: 1.5rem;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+    .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+    }
+    .results-table th,
+    .results-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .results-table th {
+        font-weight: 600;
+        color: var(--color-text);
+        border-bottom: 2px solid var(--color-text);
+    }
+    .results-table td {
+        color: var(--color-text-muted);
+    }
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .project-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+    }
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+    }
+    .action-btn.btn-dark {
+        background-color: var(--color-text);
+        color: white;
+    }
+    .action-btn .btn-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 0.5rem;
+        display: inline-flex;
+    }
+
+    @media (max-width: 768px) {
+        .project-nav-links {
+            display: none;
+        }
+        .project-title {
+            font-size: 2rem;
+        }
+        .split-section {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .action-btn {
+            width: 100%;
+        }
+    }
+</style>

@@ -1,0 +1,78 @@
+---
+// Header.astro
+---
+
+<header class="header">
+    <div class="container header-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">Jayant Patel</span>
+        </a>
+        <nav class="nav">
+            <a href="/#news" class="nav-link">News</a>
+            <a href="/#publications" class="nav-link">Publications</a>
+            <a href="/#research" class="nav-link">Research</a>
+            <a href="/#cv" class="btn btn-dark nav-btn">CV</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .header {
+        padding: 1.5rem 0;
+        background-color: var(--color-bg);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none !important;
+    }
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        /* simple abstraction of the icon */
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+    }
+    .logo-text {
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: var(--color-text);
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .nav-link {
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .nav-link:hover {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+    .nav-btn {
+        padding: 0.4rem 1.2rem;
+    }
+
+    @media (max-width: 640px) {
+        .nav {
+            gap: 1rem;
+        }
+        .nav-link {
+            display: none;
+        }
+    }
+</style>
