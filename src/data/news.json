@@ -1,14 +1,1 @@
-[
-    {
-        "date": "SEP 2023",
-        "content": "Paper on <a href='#'>\"Sparse-YOLO: Pruning for Edge\"</a> accepted at <strong>CVPR 2024</strong>. Excited to present this work in Seattle!"
-    },
-    {
-        "date": "AUG 2023",
-        "content": "Invited to give a talk at <strong>MIT CSAIL</strong> regarding our recent breakthroughs in quantization-aware training for object detection models."
-    },
-    {
-        "date": "JUL 2023",
-        "content": "Released <a href='#'>NeuroPrune</a>, an open-source PyTorch library for structured neural network pruning, now available on GitHub."
-    }
-]
+[]

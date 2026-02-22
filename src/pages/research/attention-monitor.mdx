@@ -1,0 +1,85 @@
+---
+layout: ../../layouts/ResearchLayout.astro
+title: "AI-Powered Attention Monitoring System For Book Reading"
+authors: "Ashish Sinha, <strong>Jayant Patel</strong>, Himanshu Sahu, Dr. Toran Verma"
+affiliation: "High Technology Letters"
+links:
+  - label: "Read Full Paper"
+    icon: "file-text"
+    url: "https://zenodo.org/records/16637350"
+  - label: "GitHub Repo"
+    icon: "code"
+    url: "https://github.com/Jayant71/Book-Reading_Attention-Monitor.git"
+---
+
+<section id="abstract" class="project-section abstract-section">
+    <h2>Abstract</h2>
+    <p class="abstract-text">
+        Reading books requires sustained attention, which is challenging to maintain and monitor. We propose an AI-powered system leveraging computer vision to continuously track a reader's attention level without requiring any specialized hardware beyond a standard webcam. The system accurately classifies reader engagement based on eye gaze, head pose, and facial expressions. Our approach provides a non-intrusive method to study reading behaviors and could be integrated into educational software and e-readers to help improve focus.
+    </p>
+</section>
+
+<div class="split-section">
+    <div class="half-section">
+        <h2>System Architecture</h2>
+        <div class="architecture-diagram">
+            <div class="diagram-placeholder">
+                <span>Architecture Diagram Placeholder</span>
+                <span class="diagram-sub">Input → Pre-processing → Model → Post-processing</span>
+            </div>
+            <p class="figure-caption">Figure 1. The proposed end-to-end pipeline.</p>
+        </div>
+    </div>
+
+    <div class="half-section" id="methodology">
+        <h2>Methodology</h2>
+        <p class="methodology-intro">
+            Our approach focuses on three key stages:
+        </p>
+        <ul class="methodology-list">
+            <li>
+                <strong>Facial Feature Extraction:</strong> Using computer vision models to robustly locate facial landmarks and estimate the user's head pose in real time.
+            </li>
+            <li>
+                <strong>Gaze Tracking:</strong> Implementing tracking algorithms to monitor precise eye movements and determine focal points on the screen.
+            </li>
+            <li>
+                <strong>Attention Classification:</strong> Analyzing combinations of gaze and head position using a lightweight machine learning model to classify continuous attention levels.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<section id="results" class="project-section">
+    <h2>Quantitative Results</h2>
+    <p class="table-caption">
+        Table 1: Performance metrics of the attention monitoring system compared to the baseline approach.
+    </p>
+
+    <div class="table-responsive">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Baseline Model</th>
+                    <th>Our Approach</th>
+                    <th>Improvement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>87.5%</td>
+                    <td><strong>94.2%</strong></td>
+                    <td class="text-primary"><strong>+6.7%</strong></td>
+                </tr>
+                <tr>
+                    <td>Latency (ms)</td>
+                    <td>120</td>
+                    <td><strong>45</strong></td>
+                    <td class="text-primary"><strong>-62.5%</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

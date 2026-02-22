@@ -1,64 +1,20 @@
 [
     {
-        "id": "efficientdet-lite",
-        "title": "EfficientDet-Lite: Scalable and Efficient Object Detection for Mobile Devices",
-        "authors": "<strong>Jayant Patel</strong>, Sarah Connor, and John Smith.",
-        "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2024.",
-        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        "badge": "Oral Presentation",
+        "id": "attention-monitor",
+        "title": "AI-Powered Attention Monitoring System For Book Reading",
+        "authors": "Ashish Sinha, <strong>Jayant Patel</strong>, Himanshu Sahu, Dr. Toran Verma",
+        "venue": "High Technology Letters, Volume 31, Issue 7, 2025",
+        "image": "/images/attention-monitor.webp",
         "links": [
             {
                 "label": "PDF",
                 "icon": "file-text",
-                "url": "/paper.pdf"
+                "url": "https://zenodo.org/records/16637350"
             },
             {
                 "label": "Code",
                 "icon": "code",
-                "url": "https://github.com"
-            },
-            {
-                "label": "Demo",
-                "icon": "play",
-                "url": "/demo"
-            }
-        ]
-    },
-    {
-        "id": "yolo-nano",
-        "title": "YOLO-Nano: A Highly Compact You Only Look Once Architecture",
-        "authors": "Alex Johnson, <strong>Jayant Patel</strong>, and Emily White.",
-        "venue": "European Conference on Computer Vision (ECCV), 2022.",
-        "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        "links": [
-            {
-                "label": "PDF",
-                "icon": "file-text",
-                "url": "/paper.pdf"
-            },
-            {
-                "label": "Code",
-                "icon": "code",
-                "url": "https://github.com"
-            }
-        ]
-    },
-    {
-        "id": "qay-detection",
-        "title": "Quantization Aware Training for Object Detection",
-        "authors": "<strong>Jayant Patel</strong> and Jane Doe.",
-        "venue": "International Conference on Learning Representations (ICLR), 2022.",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        "links": [
-            {
-                "label": "PDF",
-                "icon": "file-text",
-                "url": "/paper.pdf"
-            },
-            {
-                "label": "Dataset",
-                "icon": "database",
-                "url": "https://dataset.url"
+                "url": "https://github.com/Jayant71/Book-Reading_Attention-Monitor.git"
             }
         ]
     }
